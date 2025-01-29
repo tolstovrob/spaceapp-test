@@ -14,15 +14,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Change me!',
-  description: 'And this too...',
+  title: 'SpaceApp test task!',
+  description: "Description? What do you mean, it's just a test task",
 };
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>): React.ReactNode => (
   <html lang='en'>
     <APIProvider>
       <body className={`${rubikSans.variable} ${jetbrainsMono.variable} antialiased`}>
-        {children}
+        <main className='container mx-auto'>{children}</main>
       </body>
     </APIProvider>
   </html>
