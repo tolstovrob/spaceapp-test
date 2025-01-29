@@ -10,9 +10,6 @@ export const fetchFilteredCards = async (
     ...(filter && { name: filter }),
   });
 
-  alert('https://rickandmortyapi.com/api/character' + (queryString && `/${queryString}`));
-  alert(queryString);
-
   return fetch('https://rickandmortyapi.com/api/character' + (queryString && `/?${queryString}`))
     .then((data) => data.json())
     .then((data) => data as CharacterCredentials);
