@@ -1,7 +1,6 @@
 export const isMocksEnabled = true;
 
-export interface BaseResponse {
-  status: number;
-}
+/* eslint-disable */
+export interface BaseResponse {}
 
 export type Response<T> = Promise<BaseResponse & T>;
