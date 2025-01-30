@@ -7,7 +7,7 @@ type Props = {
 };
 
 const APIProvider = (props: Props) => {
-  const [client] = useState<QueryClient>(new QueryClient());
+  const [client] = useState<QueryClient>(() => new QueryClient());
 
   return <QueryClientProvider client={client}>{props.children}</QueryClientProvider>;
 };

@@ -1,16 +1,16 @@
-import { type Response } from '@api/base';
-import { CharacterCredentials } from '@services/models/character';
+import { type RickAndMortyResponse } from '@api/base';
+import { type CharacterCredentials } from '@services/models/character';
 
 export const fetchFilteredCards = async (
   page: number = 0,
   filter: string = '',
-): Response<CharacterCredentials> => {
+): Promise<RickAndMortyResponse<CharacterCredentials[]>> => {
   const queryString = new URLSearchParams({
-    ...(page !== 0 && { page: page.toString() }),
+    page: page.toString(),
     ...(filter && { name: filter }),
   });
 
   return fetch('https://rickandmortyapi.com/api/character' + (queryString && `/?${queryString}`))
     .then((data) => data.json())
-    .then((data) => data as CharacterCredentials);
+    .then((data) => data as RickAndMortyResponse<CharacterCredentials[]>);
 };
